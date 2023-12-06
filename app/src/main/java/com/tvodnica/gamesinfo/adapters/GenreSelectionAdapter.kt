@@ -8,6 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.preference.PreferenceManager
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
 import com.tvodnica.gamesinfo.R
 import com.tvodnica.gamesinfo.model.Genre
 
@@ -32,6 +33,8 @@ class GenreSelectionAdapter(
         val iv_genreSelected = holder.itemView.findViewById<ImageView>(R.id.iv_genreSelected)
 
         tv_genreName.text = item.name
+        Picasso.get().load(item.image).resize(400,400) // Set the target width and height
+            .onlyScaleDown().centerInside().into(iv_genreImage)
 
         holder.itemView.setOnClickListener {
             if (!selectedItems.contains(item)){
