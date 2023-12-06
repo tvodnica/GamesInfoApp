@@ -1,8 +1,8 @@
-package com.tvodnica.gamesinfo.api
+package com.tvodnica.gamesinfo.api.apimodels
 
 import com.google.gson.annotations.SerializedName
 
-class ApiGenre(
+class GenreApi(
     @SerializedName("id") var id: Int,
     @SerializedName("name") var name: String,
     @SerializedName("slug") var slug: String,

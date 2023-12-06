@@ -7,13 +7,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import androidx.preference.PreferenceManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.tvodnica.gamesinfo.R
 import com.tvodnica.gamesinfo.adapters.GenreSelectionAdapter
-import com.tvodnica.gamesinfo.api.ApiGenre
-import com.tvodnica.gamesinfo.api.ApiGenreResult
-import com.tvodnica.gamesinfo.api.RawgApi
+import com.tvodnica.gamesinfo.api.apimodels.GenreResultApi
 import com.tvodnica.gamesinfo.api.RawgClient
 import com.tvodnica.gamesinfo.databinding.FragmentGenreSelectionBinding
 import com.tvodnica.gamesinfo.model.Genre
@@ -44,6 +43,7 @@ class GenreSelectionFragment : Fragment() {
             }
             saveSelectedGenresToFile(requireContext(), selectedGenres)
             PreferenceManager.getDefaultSharedPreferences(requireContext()).edit().putBoolean("firstLaunchDone", true).apply()
+            findNavController().navigate(R.id.action_genreSelection_to_gamesList)
         }
     }
 
@@ -51,10 +51,10 @@ class GenreSelectionFragment : Fragment() {
         val items = mutableListOf<Genre>()
         val request = RawgClient().rawgApi.getGenres()
 
-        request.enqueue(object : Callback<ApiGenreResult> {
+        request.enqueue(object : Callback<GenreResultApi> {
             override fun onResponse(
-                call: Call<ApiGenreResult>,
-                response: Response<ApiGenreResult>
+                call: Call<GenreResultApi>,
+                response: Response<GenreResultApi>
             ) {
                 if (response.isSuccessful) {
                     response.body()?.let {
@@ -71,7 +71,7 @@ class GenreSelectionFragment : Fragment() {
                 }
             }
 
-            override fun onFailure(call: Call<ApiGenreResult>, t: Throwable) {
+            override fun onFailure(call: Call<GenreResultApi>, t: Throwable) {
                 Log.d(javaClass.name, t.message, t)
             }
         })

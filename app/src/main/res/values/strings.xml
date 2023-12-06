@@ -9,4 +9,21 @@
     <string name="genre_select_message">Choose your favorite and as many as you\'d like. You can edit this later at any time.</string>
     <string name="finish">Finish</string>
     <string name="select_at_least_one_genre">We have to select at least one genre. It\'s the law :P</string>
+    <string name="my_games">My games</string>
+    <string name="settings">Settings</string>
+    <string name="favouriteGenres">Favorite genres</string>
+    <string name="system">System</string>
+    <string name="theme">Theme</string>
+    <string name="genre">Genre</string>
+    <string name="platforms">Platforms</string>
+    <string name="developers">Developers</string>
+    <string name="release_date">Release date</string>
+    <string name="publishers">Publishers</string>
+    <string name="metacritic">Metacritic</string>
+    <string name="other_games_in_series">Other games in series</string>
+    <string name="tags">Tags</string>
+    <string name="age_rating">Age rating</string>
+    <string name="description">Description</string>
+    <string name="close">Close</string>
+    <string name="systemRequirements">System requirements</string>
 </resources>

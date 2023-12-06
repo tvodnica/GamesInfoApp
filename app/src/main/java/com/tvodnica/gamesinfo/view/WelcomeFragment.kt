@@ -5,7 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
+import androidx.preference.PreferenceManager
 import com.tvodnica.gamesinfo.R
 import com.tvodnica.gamesinfo.databinding.FragmentWelcomeBinding
 
@@ -20,7 +22,6 @@ class WelcomeFragment : Fragment() {
         setupListeners()
         return binding.root
     }
-
     private fun setupListeners() {
         binding.btnGetStarted.setOnClickListener {
              findNavController().navigate(R.id.action_welcome_to_genreSelection)

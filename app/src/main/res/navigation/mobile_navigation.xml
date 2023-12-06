@@ -13,10 +13,39 @@
         <action
             android:id="@+id/action_welcome_to_genreSelection"
             app:destination="@id/genreSelectionFragment" />
+        <action
+            android:id="@+id/action_welcome_to_gamesList"
+            app:destination="@id/gamesListFragment" />
     </fragment>
     <fragment
         android:id="@+id/genreSelectionFragment"
         android:name="com.tvodnica.gamesinfo.view.GenreSelectionFragment"
         android:label="fragment_genre_selection"
-        tools:layout="@layout/fragment_genre_selection" />
+        tools:layout="@layout/fragment_genre_selection" >
+        <action
+            android:id="@+id/action_genreSelection_to_gamesList"
+            app:destination="@id/gamesListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/gamesListFragment"
+        android:name="com.tvodnica.gamesinfo.view.GamesListFragment"
+        android:label="fragment_games_list"
+        tools:layout="@layout/fragment_games_list" >
+        <action
+            android:id="@+id/action_gamesList_to_settings"
+            app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_gamesList_to_gameDetails"
+            app:destination="@id/gameDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.tvodnica.gamesinfo.view.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/gameDetailsFragment"
+        android:name="com.tvodnica.gamesinfo.view.GameDetailsFragment"
+        android:label="fragment_game_details"
+        tools:layout="@layout/fragment_game_details" />
 </navigation>
