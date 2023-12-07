@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:padding="@dimen/screen_padding"
     tools:context=".view.GenreSelectionFragment">
@@ -49,7 +50,9 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/transparent"
                 android:contentDescription="@string/settings"
-                android:src="@drawable/baseline_arrow_back_24" />
+                android:src="@drawable/baseline_arrow_back_24"
+                app:tint="?colorSecondary"
+                />
         </FrameLayout>
 
         <TextView
@@ -62,8 +65,24 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/ll_loading"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
+        <ProgressBar
+            android:layout_width="@dimen/h3"
+            android:layout_height="@dimen/h3" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:textSize="@dimen/h3"
+            android:text="@string/loading_please_wait" />
+
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_genres"

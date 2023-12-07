@@ -1,6 +1,5 @@
 package com.tvodnica.gamesinfo.adapters
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,12 +11,10 @@ import com.tvodnica.gamesinfo.R
 import com.tvodnica.gamesinfo.api.apimodels.GenreApi
 
 class GenreSelectionAdapter(
-    private val context: Context,
     private val items: List<GenreApi>,
     private val selectedItems: MutableSet<GenreApi>
 ) : RecyclerView.Adapter<GenreSelectionAdapter.ViewHolder>() {
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-    }
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ViewHolder(
         itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_genre, parent, false)
@@ -27,26 +24,29 @@ class GenreSelectionAdapter(
 
         val item = items[position]
 
-        val tv_genreName = holder.itemView.findViewById<TextView>(R.id.tv_genreName)
-        val iv_genreImage = holder.itemView.findViewById<ImageView>(R.id.iv_genreImage)
-        val iv_genreSelected = holder.itemView.findViewById<ImageView>(R.id.iv_genreSelected)
+        val tvGenreName = holder.itemView.findViewById<TextView>(R.id.tv_genreName)
+        val ivGenreImage = holder.itemView.findViewById<ImageView>(R.id.iv_genreImage)
+        val ivGenreSelected = holder.itemView.findViewById<ImageView>(R.id.iv_genreSelected)
 
-        tv_genreName.text = item.name
-        Picasso.get().load(item.image).resize(400,400) // Set the target width and height
-            .onlyScaleDown().centerInside().into(iv_genreImage)
+        tvGenreName.text = item.name
 
-        if (selectedItems.contains(item)){
-            iv_genreSelected.visibility = View.VISIBLE
-        }
+        Picasso.get()
+            .load(item.image)
+            .error(R.mipmap.ic_launcher)
+            .resize(400, 400)
+            .onlyScaleDown()
+            .centerInside()
+            .into(ivGenreImage)
+
+        ivGenreSelected.visibility = if (selectedItems.contains(item)) View.VISIBLE else View.INVISIBLE
 
         holder.itemView.setOnClickListener {
-            if (!selectedItems.contains(item)){
+            if (!selectedItems.contains(item)) {
                 selectedItems.add(item)
-                iv_genreSelected.visibility = View.VISIBLE
-            }
-            else{
+                ivGenreSelected.visibility = View.VISIBLE
+            } else {
                 selectedItems.remove(item)
-                iv_genreSelected.visibility = View.INVISIBLE
+                ivGenreSelected.visibility = View.INVISIBLE
             }
         }
     }

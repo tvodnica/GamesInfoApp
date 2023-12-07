@@ -2,7 +2,6 @@ package com.tvodnica.gamesinfo.api.apimodels
 
 import com.google.gson.annotations.SerializedName
 
-
 data class DevelopersApi(
 
     @SerializedName("id") var id: Int? = null,

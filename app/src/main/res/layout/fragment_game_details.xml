@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,7 +11,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="@dimen/screen_padding">
-
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -28,7 +28,9 @@
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/transparent"
                     android:contentDescription="@string/settings"
-                    android:src="@drawable/baseline_arrow_back_24" />
+                    android:src="@drawable/baseline_arrow_back_24"
+                    app:tint="?colorSecondary" />
+
             </FrameLayout>
 
             <TextView
@@ -59,15 +61,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/screen_padding"
-                android:layout_marginEnd="@dimen/h5"
-                android:text="Read description" />
+                android:layout_marginEnd="@dimen/h4"
+                android:text="@string/read_description" />
 
             <Button
                 android:id="@+id/btn_checkRatings"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/h5"
-                android:backgroundTint="@color/black"
+                android:layout_marginStart="@dimen/h4"
+                android:backgroundTint="?colorSecondary"
                 android:text="@string/check_ratings" />
 
         </LinearLayout>
@@ -75,7 +77,8 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:baselineAligned="false">
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -90,7 +93,7 @@
                     android:text="@string/genre"
                     android:textAllCaps="true"
                     android:textColor="@color/gray"
-                    android:textSize="@dimen/h5" />
+                    android:textSize="@dimen/h4" />
 
                 <TextView
                     android:id="@+id/tv_genres"
@@ -105,7 +108,7 @@
                     android:text="@string/platforms"
                     android:textAllCaps="true"
                     android:textColor="@color/gray"
-                    android:textSize="@dimen/h5" />
+                    android:textSize="@dimen/h4" />
 
                 <TextView
                     android:id="@+id/tv_platforms"
@@ -120,7 +123,7 @@
                     android:text="@string/developers"
                     android:textAllCaps="true"
                     android:textColor="@color/gray"
-                    android:textSize="@dimen/h5" />
+                    android:textSize="@dimen/h4" />
 
                 <TextView
                     android:id="@+id/tv_developers"
@@ -135,7 +138,7 @@
                     android:text="@string/publishers"
                     android:textAllCaps="true"
                     android:textColor="@color/gray"
-                    android:textSize="@dimen/h5" />
+                    android:textSize="@dimen/h4" />
 
                 <TextView
                     android:id="@+id/tv_publishers"
@@ -158,7 +161,7 @@
                     android:text="@string/release_date"
                     android:textAllCaps="true"
                     android:textColor="@color/gray"
-                    android:textSize="@dimen/h5" />
+                    android:textSize="@dimen/h4" />
 
                 <TextView
                     android:id="@+id/tv_releaseDate"
@@ -173,7 +176,7 @@
                     android:text="@string/metacritic"
                     android:textAllCaps="true"
                     android:textColor="@color/gray"
-                    android:textSize="@dimen/h5" />
+                    android:textSize="@dimen/h4" />
 
                 <TextView
                     android:id="@+id/tv_metacritic"
@@ -188,7 +191,7 @@
                     android:text="@string/age_rating"
                     android:textAllCaps="true"
                     android:textColor="@color/gray"
-                    android:textSize="@dimen/h5" />
+                    android:textSize="@dimen/h4" />
 
                 <TextView
                     android:id="@+id/tv_ageRating"
@@ -203,7 +206,7 @@
                     android:text="@string/stores"
                     android:textAllCaps="true"
                     android:textColor="@color/gray"
-                    android:textSize="@dimen/h5" />
+                    android:textSize="@dimen/h4" />
 
                 <TextView
                     android:id="@+id/tv_stores"
@@ -222,7 +225,7 @@
             android:text="@string/tags"
             android:textAllCaps="true"
             android:textColor="@color/gray"
-            android:textSize="@dimen/h5" />
+            android:textSize="@dimen/h4" />
 
         <TextView
             android:id="@+id/tv_tags"

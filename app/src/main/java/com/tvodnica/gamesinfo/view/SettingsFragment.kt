@@ -7,11 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.tvodnica.gamesinfo.R
-import com.tvodnica.gamesinfo.databinding.FragmentGamesListBinding
 import com.tvodnica.gamesinfo.databinding.FragmentSettingsBinding
 
 class SettingsFragment : Fragment() {
+
     private lateinit var binding: FragmentSettingsBinding
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

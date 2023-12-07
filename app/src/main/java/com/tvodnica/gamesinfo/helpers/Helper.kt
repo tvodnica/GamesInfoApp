@@ -1,30 +1,20 @@
 package com.tvodnica.gamesinfo.helpers
 
 import android.content.Context
-import com.tvodnica.gamesinfo.api.apimodels.GenreApi
-import java.io.File
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
+import androidx.appcompat.app.AppCompatActivity
 
-const val SELECTED_GENRES_FILE_NAME = "selectedGenres"
-const val DELIMITER = ";"
-fun saveSelectedGenresToFile(context: Context, genres: MutableSet<GenreApi>) {
-    var ids = ""
-    genres.forEach { genre ->
-        ids += genre.id
-        ids += DELIMITER
+fun Context.hasInternetAccess(): Boolean {
+
+    val connectivityManager = getSystemService(AppCompatActivity.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+    val network = connectivityManager.activeNetwork ?: return false
+    val activeNetwork = connectivityManager.getNetworkCapabilities(network) ?: return false
+
+    return when {
+        activeNetwork.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) -> true
+        activeNetwork.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) -> true
+        else -> false
     }
-    File(context.filesDir, SELECTED_GENRES_FILE_NAME).writeText(ids)
-}
-
-fun getSelectedGenresIds(context: Context): MutableSet<Int> {
-    val result = mutableSetOf<Int>()
-    try {
-        val allText = File(context.filesDir, SELECTED_GENRES_FILE_NAME).readText(Charsets.UTF_8)
-        val values = allText.split(DELIMITER)
-
-        values.forEach { value ->
-            result.add(value.toInt())
-        }
-    } catch (_: Exception) {
-    }
-    return result
 }

@@ -3,6 +3,7 @@
     <style name="Base.Theme.GamesInfo" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <item name="colorPrimary">@color/blue</item>
+        <item name="colorSecondary">@color/black</item>
     </style>
 
     <style name="Theme.GamesInfo" parent="Base.Theme.GamesInfo" />

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation.xml"
-    app:startDestination="@id/welcomeFragment">
+    app:startDestination="@id/gamesListFragment">
 
     <fragment
         android:id="@+id/welcomeFragment"
@@ -13,9 +13,6 @@
         <action
             android:id="@+id/action_welcome_to_genreSelection"
             app:destination="@id/genreSelectionFragment" />
-        <action
-            android:id="@+id/action_welcome_to_gamesList"
-            app:destination="@id/gamesListFragment" />
     </fragment>
     <fragment
         android:id="@+id/genreSelectionFragment"
@@ -37,6 +34,9 @@
         <action
             android:id="@+id/action_gamesList_to_gameDetails"
             app:destination="@id/gameDetailsFragment"/>
+        <action
+            android:id="@+id/action_gamesList_to_welcome"
+            app:destination="@id/welcomeFragment" />
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"

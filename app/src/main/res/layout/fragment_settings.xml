@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="@dimen/screen_padding"
     android:orientation="vertical"
+    android:padding="@dimen/screen_padding"
     tools:context=".view.SettingsFragment">
 
     <LinearLayout
@@ -24,7 +24,9 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/transparent"
                 android:contentDescription="@string/settings"
-                android:src="@drawable/baseline_arrow_back_24" />
+                android:src="@drawable/baseline_arrow_back_24"
+                app:tint="?colorSecondary"
+                />
         </FrameLayout>
 
         <TextView
@@ -36,42 +38,6 @@
             android:textStyle="bold" />
 
     </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/ll_theme"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/screen_padding">
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/theme"
-                android:textSize="@dimen/h2" />
-
-            <TextView
-                android:id="@+id/tv_selectedTheme"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/system"
-                android:textColor="@color/gray"
-                android:textSize="@dimen/h2" />
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginHorizontal="@dimen/screen_padding"
-        android:background="@color/light_gray" />
 
     <LinearLayout
         android:id="@+id/ll_favouriteGenres"
@@ -92,7 +58,9 @@
             android:layout_height="18dp"
             android:layout_gravity="center"
             android:rotation="180"
-            android:src="@drawable/baseline_arrow_back_ios_24" />
+            android:src="@drawable/baseline_arrow_back_ios_24"
+            app:tint="?colorSecondary"
+            />
 
     </LinearLayout>
 
