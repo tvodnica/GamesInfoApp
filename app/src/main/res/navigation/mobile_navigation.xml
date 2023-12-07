@@ -9,7 +9,7 @@
         android:id="@+id/welcomeFragment"
         android:name="com.tvodnica.gamesinfo.view.WelcomeFragment"
         android:label="fragment_welcome"
-        tools:layout="@layout/fragment_welcome" >
+        tools:layout="@layout/fragment_welcome">
         <action
             android:id="@+id/action_welcome_to_genreSelection"
             app:destination="@id/genreSelectionFragment" />
@@ -21,7 +21,7 @@
         android:id="@+id/genreSelectionFragment"
         android:name="com.tvodnica.gamesinfo.view.GenreSelectionFragment"
         android:label="fragment_genre_selection"
-        tools:layout="@layout/fragment_genre_selection" >
+        tools:layout="@layout/fragment_genre_selection">
         <action
             android:id="@+id/action_genreSelection_to_gamesList"
             app:destination="@id/gamesListFragment" />
@@ -30,22 +30,30 @@
         android:id="@+id/gamesListFragment"
         android:name="com.tvodnica.gamesinfo.view.GamesListFragment"
         android:label="fragment_games_list"
-        tools:layout="@layout/fragment_games_list" >
+        tools:layout="@layout/fragment_games_list">
         <action
             android:id="@+id/action_gamesList_to_settings"
             app:destination="@id/settingsFragment" />
         <action
             android:id="@+id/action_gamesList_to_gameDetails"
-            app:destination="@id/gameDetailsFragment" />
+            app:destination="@id/gameDetailsFragment"/>
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.tvodnica.gamesinfo.view.SettingsFragment"
         android:label="fragment_settings"
-        tools:layout="@layout/fragment_settings" />
+        tools:layout="@layout/fragment_settings" >
+        <action
+            android:id="@+id/action_settings_to_genreSelection"
+            app:destination="@id/genreSelectionFragment" />
+    </fragment>
     <fragment
         android:id="@+id/gameDetailsFragment"
         android:name="com.tvodnica.gamesinfo.view.GameDetailsFragment"
         android:label="fragment_game_details"
-        tools:layout="@layout/fragment_game_details" />
+        tools:layout="@layout/fragment_game_details">
+        <argument
+            android:name="itemId"
+            app:argType="integer" />
+    </fragment>
 </navigation>

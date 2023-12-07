@@ -1,19 +1,17 @@
 package com.tvodnica.gamesinfo.adapters
 
 import android.content.Context
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.navigation.Navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
-import androidx.preference.PreferenceManager
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import com.tvodnica.gamesinfo.R
 import com.tvodnica.gamesinfo.api.apimodels.GameApi
-import com.tvodnica.gamesinfo.model.Genre
 
 class GamesAdapter(
     private val context: Context,
@@ -38,7 +36,9 @@ class GamesAdapter(
             .onlyScaleDown().centerCrop().into(iv_gameImage)
 
         holder.itemView.setOnClickListener {
-            findNavController(it).navigate(R.id.action_gamesList_to_gameDetails)
+            val bundle = Bundle()
+            bundle.putInt("itemId", item.id!!)
+            findNavController(it).navigate(R.id.action_gamesList_to_gameDetails, bundle)
         }
     }
 

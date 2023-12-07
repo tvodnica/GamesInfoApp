@@ -26,4 +26,7 @@
     <string name="description">Description</string>
     <string name="close">Close</string>
     <string name="systemRequirements">System requirements</string>
+    <string name="stores">Stores</string>
+    <string name="check_ratings">Check ratings</string>
+    <string name="ratings">Ratings</string>
 </resources>

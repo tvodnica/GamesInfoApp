@@ -16,11 +16,11 @@ import com.tvodnica.gamesinfo.databinding.FragmentGameDetailsBinding
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.util.Locale
 
 class GameDetailsFragment : Fragment() {
 
     private lateinit var binding: FragmentGameDetailsBinding
-    private val gameId = 3498
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -42,10 +42,17 @@ class GameDetailsFragment : Fragment() {
                 show()
             }
         }
-        binding.btnCheckSystemRequirements.setOnClickListener {
+        binding.btnCheckRatings.setOnClickListener {
+
+            var ratingMessage = "Average rating: ${gameApi.rating}\n\n"
+
+            gameApi.ratings.forEach {rating ->
+                ratingMessage = ratingMessage + rating.title?.replaceFirstChar(Char::titlecase) + ": " + rating.percent + "%\n"
+            }
+
             AlertDialog.Builder(requireContext()).apply {
-                setTitle(getString(R.string.systemRequirements))
-                setMessage("")
+                setTitle(getString(R.string.ratings))
+                setMessage(ratingMessage)
                 setPositiveButton(getString(R.string.close), null)
                 show()
             }
@@ -53,7 +60,8 @@ class GameDetailsFragment : Fragment() {
     }
 
     private fun loadData() {
-        val request = RawgClient().rawgApi.getGameById(gameId)
+        val gameId = arguments?.getInt("itemId") // Retrieve the item ID
+        val request = RawgClient().rawgApi.getGameById(gameId!!)
 
         request.enqueue(object : Callback<GameApi> {
             override fun onResponse(
@@ -68,21 +76,25 @@ class GameDetailsFragment : Fragment() {
                         var publishers = ""
                         var platforms = ""
                         var tags = ""
+                        var stores = ""
 
                         it.genres.forEach { genres = genres + it.name + ", " }
                         it.developers.forEach { developers = developers + it.name + ", " }
                         it.publishers.forEach { publishers = publishers + it.name + ", " }
                         it.platforms.forEach { platforms = platforms + it.platformApi?.name + ", " }
                         it.tags.forEach { tags = tags + it.name + ", " }
+                        it.stores.forEach { stores = stores + it.storeApi?.name + ", " }
 
                         binding.tvGameName.text = it.name
                         binding.tvReleaseDate.text = it.released
                         binding.tvMetacritic.text = it.metacritic.toString()
+                        binding.tvAgeRating.text = it.esrbRatingApi?.name ?: ""
                         binding.tvGenres.text = genres.removeSuffix(", ")
                         binding.tvDevelopers.text = developers.removeSuffix(", ")
                         binding.tvPublishers.text = publishers.removeSuffix(", ")
                         binding.tvPlatforms.text = platforms.removeSuffix(", ")
                         binding.tvTags.text = tags.removeSuffix(", ")
+                        binding.tvStores.text = stores.removeSuffix(", ")
 
                         Picasso.get().load(it.backgroundImage).resize(900,500).centerInside().into(binding.ivImage)
 

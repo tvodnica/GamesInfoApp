@@ -25,6 +25,9 @@ class SettingsFragment : Fragment() {
         binding.btnGoBack.setOnClickListener {
             findNavController().navigateUp()
         }
+        binding.llFavouriteGenres.setOnClickListener {
+            findNavController().navigate(R.id.action_settings_to_genreSelection)
+        }
     }
 
 }

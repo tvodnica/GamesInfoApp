@@ -58,17 +58,17 @@
                 android:id="@+id/btn_readDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/h5"
                 android:layout_marginVertical="@dimen/screen_padding"
+                android:layout_marginEnd="@dimen/h5"
                 android:text="Read description" />
 
             <Button
-                android:id="@+id/btn_checkSystemRequirements"
+                android:id="@+id/btn_checkRatings"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/h5"
                 android:backgroundTint="@color/black"
-                android:text="Check System req" />
+                android:text="@string/check_ratings" />
 
         </LinearLayout>
 
@@ -200,17 +200,17 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/other_games_in_series"
+                    android:text="@string/stores"
                     android:textAllCaps="true"
                     android:textColor="@color/gray"
                     android:textSize="@dimen/h5" />
 
                 <TextView
-                    android:id="@+id/tv_otherGamesInSeries"
+                    android:id="@+id/tv_stores"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/screen_padding"
-                    tools:text="Grand Theft Auto: Chinatown Wars, Grand Theft Auto IV, Grand Theft Auto: Vice City Stories" />
+                    tools:text="Steam, Epic games, Playstation Store, " />
             </LinearLayout>
 
 

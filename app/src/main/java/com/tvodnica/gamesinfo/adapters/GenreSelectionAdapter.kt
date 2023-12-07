@@ -6,16 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.preference.PreferenceManager
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import com.tvodnica.gamesinfo.R
-import com.tvodnica.gamesinfo.model.Genre
+import com.tvodnica.gamesinfo.api.apimodels.GenreApi
 
 class GenreSelectionAdapter(
     private val context: Context,
-    private val items: MutableList<Genre>,
-    private val selectedItems: MutableSet<Genre>
+    private val items: List<GenreApi>,
+    private val selectedItems: MutableSet<GenreApi>
 ) : RecyclerView.Adapter<GenreSelectionAdapter.ViewHolder>() {
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     }
@@ -35,6 +34,10 @@ class GenreSelectionAdapter(
         tv_genreName.text = item.name
         Picasso.get().load(item.image).resize(400,400) // Set the target width and height
             .onlyScaleDown().centerInside().into(iv_genreImage)
+
+        if (selectedItems.contains(item)){
+            iv_genreSelected.visibility = View.VISIBLE
+        }
 
         holder.itemView.setOnClickListener {
             if (!selectedItems.contains(item)){
